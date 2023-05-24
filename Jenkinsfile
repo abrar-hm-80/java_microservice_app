@@ -84,7 +84,7 @@ rm -Rf .kube
 mkdir .kube
 ls
 cat $KUBECONFIG > .kube/config
-cp fastapi/values.yaml values.yml
+cp java_app/values.yaml values.yml
 cat values.yml
 sed -i "s+tag.*+tag: ${DOCKER_TAG}+g" values.yml
 helm upgrade --install app java_app --values=values.yml --namespace prod
