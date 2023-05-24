@@ -5,12 +5,13 @@ pipeline {
       steps {
         script {
           sh '''
- echo "Update to new server"
- docker rm -f jenkins
- docker build -t $DOCKER_ID/$DOCKER_IMAGE:$DOCKER_TAG .
+echo "Update to new server"
+docker rm -f jenkins
+docker build -t $DOCKER_ID/$DOCKER_IMAGE:$DOCKER_TAG .
 sleep 6
 '''
         }
+
       }
     }
 
@@ -22,6 +23,7 @@ docker run -d -p 7080:7080 --name jenkins $DOCKER_ID/$DOCKER_IMAGE:$DOCKER_TAG
 sleep 10
 '''
         }
+
       }
     }
 
@@ -32,9 +34,11 @@ sleep 10
 curl localhost
 '''
         }
+
       }
     }
-  stage('Docker Push') {
+
+    stage('Docker Push') {
       environment {
         DOCKER_PASS = credentials('DOCKER_HUB_PASS')
       }
@@ -45,6 +49,7 @@ docker login -u $DOCKER_ID -p $DOCKER_PASS
 docker push $DOCKER_ID/$DOCKER_IMAGE:$DOCKER_TAG
 '''
         }
+
       }
     }
 
