@@ -31,7 +31,7 @@ sleep 10
       steps {
         script {
           sh '''
-curl localhost
+curl localhost:7080
 '''
         }
 
