@@ -23,7 +23,7 @@
         <docker.registry>registry.hub.docker.com</docker.registry>
         <docker.name>${docker.registry}/${docker.repo}/${project.build.finalName}:${docker.tag}</docker.name>
         <avengers.host>localhost</avengers.host>
-        <avengers.port>8080</avengers.port>
+        <avengers.port>8085</avengers.port>
     </properties>
 
     <dependencies>
